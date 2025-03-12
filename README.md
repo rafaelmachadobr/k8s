@@ -8,7 +8,7 @@ Antes de iniciar, certifique-se de ter os seguintes requisitos atendidos:
 
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) instalado e configurado.
 - Um cluster Kubernetes em funcionamento, como:
-  - [Minikube](https://minikube.sigs.k8s.io/docs/start/)
+  - [Minikube](https://minikube.sigs.k8s.io/docs/start/) (De preferência)
   - [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
   - [K3s](https://docs.k3s.io/quick-start)
   - [AKS (Azure Kubernetes Service)](https://docs.microsoft.com/pt-br/azure/aks/kubernetes-walkthrough-portal)
@@ -99,3 +99,27 @@ minikube service nginx-service
 ```
 
 Isso abrirá o Nginx diretamente no navegador.
+
+### Acessando o dashboard do Kubernetes
+
+Você também pode acessar o dashboard do Kubernetes para visualizar os recursos implantados:
+
+```bash
+minikube dashboard
+```
+
+## 🧹 Limpeza
+
+Para remover os recursos criados, execute:
+
+```bash
+kubectl delete -f deployment.yaml
+kubectl delete -f service.yaml
+```
+
+Se você criou um cluster Kubernetes usando Minikube ou Kind, pode excluí-lo com:
+
+```bash
+minikube delete
+kind delete cluster
+```
